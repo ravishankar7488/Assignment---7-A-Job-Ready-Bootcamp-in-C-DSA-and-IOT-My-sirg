@@ -1,0 +1,290 @@
+                                                                                          Assingment 7
+
+                                                                                          ------------
+
+1. Write a program to find the Nth term of the Fibonnaci series.
+Ans. 
+
+#include<iostream>
+using namespace std;
+int main() {
+	int a=0,b=1,c,count=2,upto;
+	cin>>upto;
+	do {
+		if(upto==3 || upto==2) {
+			cout<<"1";
+			break;
+		} else if(upto==1) {
+			cout<<"0";
+			break;
+		} else {
+			c=a+b;
+			a=b;
+			b=c;
+			count++;
+			if(count==upto)cout<<c;
+
+		}
+
+	} while(count!=upto);
+
+
+}
+
+2. Write a program to print first N terms of Fibonacci series.
+Ans.
+
+#include<iostream>
+using namespace std;
+int main() {
+	int seed1=0,seed2=1,c,count=2,upto;
+	cin>>upto;
+	cout<<"0 1 ";
+	do {
+		c=seed1+seed2;
+		seed1=seed2;
+		seed2=c;
+		cout<<c<<" ";
+		count++;
+
+	} while(count!=upto);
+}
+
+
+3. Write a program to check whether a given number is there in the Fibonacci
+series or not.
+Ans.
+
+#include<iostream>
+using namespace std;
+int main() {
+	int seed1=0,seed2=1,c,count=2,upto,no;
+	cin>>no;
+	upto=no;
+
+	do {
+		if(no==0 ||no==1) {
+			cout<<"Yes Available";
+			break;
+		}
+		c=seed1+seed2;
+		seed1=seed2;
+		seed2=c;
+		if(no==c) {
+			cout<<"Yes Available";
+			break;
+		}
+
+		count++;
+
+	} while(count!=upto);
+
+	if(count==upto)cout<<"Not Available";
+
+}
+
+4. Write a program to calculate HCF of two numbers.
+Ans.
+
+#include<iostream>
+using namespace std;
+int main() {
+	int x,y,i;
+	cin>>x>>y;
+	for(i=x; i>=1; i--) {
+		if(x%i==0 && y%i==0) {
+			cout<<"HCF: "<<i;
+			break;
+		}
+	}
+}
+
+
+5. Write a program to check whether two given numbers are co-prime
+numbers or not.
+Ans.
+
+#include<iostream>
+using namespace std;
+int main() {
+	int x,y,i;
+	cin>>x>>y;
+	for(i=x; i>=1; i--) {
+		if(x%i==0 && y%i==0) {
+			break;
+		}
+	}if(i==1)cout<<x<<" and "<<y<<" are co-prime to each others";
+	else{cout<<x<<" and "<<y<<" are not co-prime to each others";
+	}
+
+}
+
+
+6. Write a program to print all Prime numbers under 100.
+Ans.
+
+#include<iostream>
+using namespace std;
+void check_prime(int n);
+int main() {
+	int i;
+	for(i=2; i<=100; i++) {
+		check_prime(i);
+	}
+}
+
+void check_prime(int n) {
+	int count=0;
+	for(int i=2; i<n; i++) {
+		if(n%i==0){count++;
+		}
+	}
+	if(count==0)cout<<endl<<n;
+}
+
+
+7. Write a program to print all Prime numbers between two given numbers.
+Ans.
+
+#include<iostream>
+using namespace std;
+void check_prime(int n);
+int main() {
+	int x,y,i;
+	cout<<"From: ";
+	cin>>x;
+	cout<<"\nTo: ";
+	cin>>y;
+	for(i=x+1; i<y; i++) {
+		check_prime(i);
+	}
+}
+
+void check_prime(int n) {
+	int count=0;
+	for(int i=2; i<n; i++) {
+		if(n%i==0){count++;
+		}
+	}
+	if(count==0)cout<<endl<<n;
+}
+
+
+8. Write a program to find next Prime number of a given number.
+Ans.
+
+#include<iostream>
+using namespace std;
+int main() {
+	int x;
+	cin>>x;
+	x++;
+	do {
+		int count=0;
+		for(int i=2; i<x; i++) {
+			if(x%i==0) {
+				count++;
+				break;
+			}
+		}
+		if(count==0) {
+			cout<<x;
+			break;
+		}
+
+		x++;
+	} while(1);
+}
+
+
+9. Write a program to check whether a given number is an Armstrong number
+or not.
+Ans.
+
+#include<iostream>
+using namespace std;
+void check_armstrong(int num);
+int main() {
+	int number;
+	cin>>number;
+	check_armstrong(number);
+
+}
+void check_armstrong(int num) {
+	int x,sum=0,rem;
+	x=num;
+
+	do {
+		rem=num%10;
+		num/=10;
+		sum=sum+rem*rem*rem;
+
+	} while(num!=0);
+
+	if(sum==x)cout<<"Armstrong";
+	else cout<<"Not Armstrong";
+}
+
+
+10. Write a program to print all Armstrong numbers under 1000.
+Ans.
+
+#include<iostream>
+using namespace std;
+int check_armstrong(int num);
+int main() {
+	int upto,i=1;
+	cin>>upto;
+	do {
+		int mark=check_armstrong(i);
+		if(mark==1) {
+			cout<<i<<" ";
+		}
+		i++;
+	} while(i<=upto);
+
+
+}
+int check_armstrong(int num) {
+	int x,sum=0,rem;
+	x=num;
+
+	do {
+		rem=num%10;
+		num/=10;
+		sum=sum+rem*rem*rem;
+
+	} while(num!=0);
+
+	if(sum==x)return 1;
+	else return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
